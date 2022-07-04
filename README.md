@@ -13,6 +13,9 @@ mv packer /usr/local/bin
 ```
 
 ## Packer Commands
+
+You must have AWS access configured on your shell.
+
 ```bash
 packer init .
 packer fmt . #format mile
