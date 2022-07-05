@@ -35,7 +35,6 @@ build {
     ]
     inline = [
       "echo Installing Apache",
-      "sleep 30",
       "sudo apt update",
       "sudo apt install -y apache2"      
     ]

@@ -7,8 +7,17 @@ packer {
   }
 }
 
+variable "ami_prefix" {
+  type    = string
+  default = "ubuntu-httpd-Packer"
+}
+
+locals {
+  timestamp = regex_replace(timestamp(), "[- TZ:]", "")
+}
+
 source "amazon-ebs" "ubuntu-apache" {
-  ami_name      = "learn-packer-linux-aws"
+  ami_name      = "${var.ami_prefix}-${local.timestamp}"
   instance_type = "t2.micro"
   region        = "eu-west-1"
   source_ami_filter {
@@ -35,7 +44,6 @@ build {
     ]
     inline = [
       "echo Installing Apache",
-      "sleep 30",
       "sudo apt update",
       "sudo apt install -y apache2"      
     ]

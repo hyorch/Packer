@@ -44,7 +44,6 @@ build {
     ]
     inline = [
       "echo Installing Apache",
-      "sleep 30",
       "sudo yum update",
       "sudo yum install -y httpd"      
     ]
