@@ -8,11 +8,14 @@ phases:
       - unzip packer*.zip
       - mv packer /usr/local/bin
       - packer version
+      - pwd
+      - ls
   build:
     commands:
       - echo Build started on `date`  
-      - packer validate aws-ubuntu-apache-pkr.hcl
-      - packer build aws-ubuntu-apache-pkr.hcl
+      - packer init Codebuild-Packer/
+      - packer validate Codebuild-Packer/aws-ubuntu-apache.pkr.hcl
+      - packer build Codebuild-Packer/aws-ubuntu-apache-pkr.hcl
   post_build:
     commands:
       - echo Build completed on `date`
