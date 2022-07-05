@@ -10,7 +10,9 @@ phases:
       - packer version
   build:
     commands:
-      - echo Build started on `date`     
+      - echo Build started on `date`  
+      - packer validate aws-ubuntu-apache-pkr.hcl
+      - packer build aws-ubuntu-apache-pkr.hcl
   post_build:
     commands:
       - echo Build completed on `date`
