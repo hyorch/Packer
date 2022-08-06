@@ -18,7 +18,7 @@ You must have AWS access configured on your shell.
 
 ```bash
 packer init .
-packer fmt . #format mile
+packer fmt . #format file
 packer validate .
 packer build .
 ```
